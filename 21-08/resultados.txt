@@ -1,0 +1,71 @@
+﻿COMPARACIÓN DE TIEMPOS
+
+Resultados de bucles 1:
+
+	Con MAX=100: 0.000093079 segundos
+
+	Con MAX=500: 0.00191099 segundos
+
+	Con MAX=1000: 0.00330168 segundos
+
+
+
+Resultados de bucles 2:
+
+	Con MAX=100: 0.000118815 segundos
+	Con MAX=500: 0.00252575 segundos
+
+	Con MAX=1000: 0.00497316 segundos
+
+Resultados de multiplicación de matrices tradicional:
+
+	Con matrices de 100 X 100: 0.00566945 segundos
+
+	Con matrices de 500 X 500: 0.401286 segundos
+
+	Con matrices de 800 X 800: 2.71836 segundos
+
+
+
+Resultados de multiplicación de matrices por bloques:
+
+	Con matrices de 100 X 100: 0.00200823 segundos
+
+	Con matrices de 500 X 500: 0.00937768 segundos
+
+	Con matrices de 800 X 800: 0.0185567 segundos
+
+
+
+
+
+
+
+
+
+CACHE MISSES
+
+Cache misses con multiplicación de matrices tradicional:
+
+	7.3% miss rate
+
+	528438426 data read misses
+
+
+
+Cache misses con multiplicación de matrices por bloques:
+
+	0.3% miss rate
+
+	329997 data read misses
+
+
+
+
+
+
+
+ANÁLISIS DE LOS ALGORITMOS
+El algoritmo de multiplicación de matrices por bloques parece ser más eficiente que su equivalente tradicional.
+Si examinamos la complejidad algoritmíca del algoritmo tradicional, vemos que requiere aproximadamente 2*N*N*N operaciones aritméticas (suma y multiplicación).
+Aunque, la versión del algoritmo de bloques realiza las mismas operaciones (solo cambia la secuencia en que se realizan las operaciones), al dividir la matriz en bloques de un tamaño más pequeño, esta información sí puede entar en la memoria caché y así se reducen la tasa de cache misses (como pudimos constatar al usar las herramientas de cachegrind). Esta diferencia explica por qué el segundo algoritmo resultó más eficiente que el primero en términos de tiempo de ejecución.
