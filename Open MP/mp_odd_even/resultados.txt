@@ -1,0 +1,23 @@
+Two parallel for directives: (20000 elements)
+
+1 thread: 0.742696 segundos
+
+2 threads: 0.39183 segundos
+
+3 threads: 0.465066 segundos
+
+4 threads: 0.416861 segundos
+
+
+
+
+
+Two for directives: (20000 elements)
+
+1 thread: 0.740653 segundos
+
+2 threads: 0.391476 segundos
+
+3 threads: 0.466014 segundos
+
+4 threads: 0.400677 segundos
