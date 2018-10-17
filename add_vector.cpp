@@ -40,24 +40,22 @@ void vecAdd(float* h_A, float* h_B, float* h_C, int n)
 
 int main()
 {
-    int *a, *b, *c;
-    a = (int *)malloc(ITER * sizeof(int));
-    b = (int *)malloc(ITER * sizeof(int));
-    c = (int *)malloc(ITER * sizeof(int));
+    int *h_a, *h_b, *h_c;
+    h_a = (int *)malloc(ITER * sizeof(int));
+    h_b = (int *)malloc(ITER * sizeof(int));
+    h_c = (int *)malloc(ITER * sizeof(int));
 
     for (int i = 0; i < ITER; ++i)
     {
-        a[i] = i;
-        b[i] = i;
-        c[i] = i;
+        h_a[i] = i;
+        h_b[i] = i;
+        h_c[i] = i;
     }
 
-    vecAdd <<<1, ITER>>> (a, b, c, ITER);
-    cudaDeviceSynchronize();
-
-    free(a);
-    free(b);
-    free(c);
+    vecAdd(h_a, h_b, h_c, ITER);
+    free(h_a);
+    free(h_b);
+    free(h_c);
 
     return 0;
 }
